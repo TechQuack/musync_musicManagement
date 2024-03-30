@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,7 +7,27 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id Int        @id
-  name String
+model UserSharedPlaylist {
+  user_shared_playlist_id Int @id @default(autoincrement())
+  playlist_id             Int
+  user_id                 Int
+}
+
+model UserSharedMusic {
+  user_shared_music_id Int @id @default(autoincrement())
+  music_id             Int
+  user_id              Int
+}
+
+model UserMusicPlatform {
+  user_music_platform Int    @id @default(autoincrement())
+  user_id             Int
+  token_account       String
+  music_media_id      Int
+}
+
+model MusicPlaform {
+  music_platform   Int    @id @default(autoincrement())
+  music_media_id   Int
+  music_media_name String
 }

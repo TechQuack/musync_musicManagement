@@ -8,4 +8,4 @@ RUN npm install
 
 COPY . /opt/project
 
-EXPOSE 3000
+EXPOSE 4000

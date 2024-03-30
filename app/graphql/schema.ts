@@ -1,6 +1,15 @@
-import {buildSchema} from "graphql/utilities";
+const {buildSchema} = require("graphql/utilities");
 
 const typeDefs = buildSchema(`#graphql
+
+    type Query {
+        getUserSharedPlaylist(id: Int): UserSharedPlaylist,
+        getUserSharedMusic(id: Int): UserSharedMusic,
+        getUserMedia(user_id: Int): MediaPlatformName,
+        getUserMediaToken(user_id: Int): MediaPlatformConnectionToken,
+        getUserSharedPlaylists(user_id: Int): ListUserSharedPlaylists,
+        getUserSharedMusics(user_id: Int): ListUserSharedMusics
+    }
 
     type UserSharedPlaylist {
         user_shared_playlist_id: ID!
@@ -31,4 +40,4 @@ const typeDefs = buildSchema(`#graphql
     }
 `);
 
-export default typeDefs;
+module.exports = { typeDefs }

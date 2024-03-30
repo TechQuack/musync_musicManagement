@@ -7,7 +7,7 @@ services:
       context: app
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "4000:4000"
     environment:
       DATABASE_URL: ${DATABASE_URL}
     depends_on:

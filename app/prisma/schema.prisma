@@ -20,14 +20,14 @@ model UserSharedMusic {
 }
 
 model UserMusicPlatform {
-  user_music_platform Int    @id @default(autoincrement())
-  user_id             Int
+  user_id             Int @id
   token_account       String
-  music_media_id      Int
+  music_media         MusicPlatform
 }
 
-model MusicPlaform {
-  music_platform   Int    @id @default(autoincrement())
-  music_media_id   Int
-  music_media_name String
+enum MusicPlatform {
+  Spotify
+  Apple_Music
+  Deezer
+  Unknown
 }

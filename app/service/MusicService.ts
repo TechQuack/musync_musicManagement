@@ -191,6 +191,33 @@ class MusicService {
         }
     }
 
+    /**
+     * getSpotifyAccessToken : get the token account of the user for connection to Spotify
+     * @private
+     */
+    public async getSpotifyAccessToken(): Promise<string> {
+        const authOptions = {
+            url: 'https://accounts.spotify.com/api/token',
+            headers: {
+                'Authorization': 'Basic ' +
+                    (
+                        new Buffer.from(
+                            process.env.CLIENT_ID + ':' + process.env.CLIENT_SECRET
+                        ).toString('base64'))
+            },
+            form: {
+                grant_type: 'client_credentials'
+            },
+            json: true
+        };
+        return await fetch(authOptions).then(async response => {
+            if (!response.ok && response.status === 200) {
+                return JSON.parse(await response.text()).access_token;
+            }
+        });
+
+    }
+
     // UTILS
 
     /**

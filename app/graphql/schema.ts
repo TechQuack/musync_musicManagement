@@ -15,7 +15,7 @@ const typeDefs = buildSchema(`#graphql
     type Mutation {
         postUserSharedPlaylist(user_id: Int, playlist_id: Int): UserSharedPlaylist,
         postUserSharedMusic(user_id: Int, music_id: Int): UserSharedMusic,
-        setUserMedia(user_id:Int, token_account:String, media_name:String):UserPlatformMusic
+        setUserMedia(user_id:Int, media_name:String): UserPlatformMusic,
     }
 
     type UserSharedPlaylist {

@@ -1,4 +1,5 @@
 import { MusicService } from '../service/MusicService.ts';
+import {MusicPlatform} from "@prisma/client";
 
 
 const musicService = new MusicService();
@@ -30,7 +31,13 @@ const resolvers = {
     postUserSharedMusic({user_id, music_id}) {
         return musicService.postUserSharedMusic(user_id, music_id);
     },
-    setUserMedia({user_id, token_account, media_name}) {
+    async setUserMedia({user_id, media_name}) {
+        let token_account
+        if(media_name == MusicPlatform.Spotify) {
+           token_account  = await musicService.getSpotifyAccessToken();
+        } else {
+            return null;
+        }
         return musicService.setUserMedia(user_id, token_account, media_name);
     }
 };

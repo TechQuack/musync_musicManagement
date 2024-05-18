@@ -1,5 +1,6 @@
 import { MusicService } from '../service/MusicService.ts';
 import {MusicPlatform} from "@prisma/client";
+import { updateSharedMusic, updateSharedPlaylist, updateMusicalPreferences } from "../kafka/producer.ts"
 
 
 const musicService = new MusicService();
@@ -25,11 +26,15 @@ const resolvers = {
     getUserSharedMusics({user_id}) {
         return musicService.getUserSharedMusics(user_id);
     },
-    postUserSharedPlaylist({ user_id, playlist_id }) {
-        return musicService.postUserSharedPlaylist(user_id, playlist_id);
+    async postUserSharedPlaylist({user_id, playlist_id}) {
+        let response = musicService.postUserSharedPlaylist(user_id, playlist_id);
+        await updateSharedPlaylist(await musicService.getUserSharedPlaylist(user_id, playlist_id));
+        return response;
     },
-    postUserSharedMusic({user_id, music_id}) {
-        return musicService.postUserSharedMusic(user_id, music_id);
+    async postUserSharedMusic({user_id, music_id}) {
+        let response = musicService.postUserSharedMusic(user_id, music_id);
+        await updateSharedMusic(await musicService.getUserSharedMusic(user_id, music_id))
+        return response
     },
     async setUserMedia({user_id, media_name}) {
         let token_account
@@ -38,7 +43,9 @@ const resolvers = {
         } else {
             return null;
         }
-        return musicService.setUserMedia(user_id, token_account, media_name);
+        let response = musicService.setUserMedia(user_id, token_account, media_name);
+        await updateMusicalPreferences(await response)
+        return response;
     }
 };
 export { resolvers }

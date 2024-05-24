@@ -5,9 +5,6 @@ import { updateSharedMusic, updateSharedPlaylist, updateMusicalPreferences } fro
 
 const musicService = new MusicService();
 const resolvers = {
-    getNumber() {
-        return 6;
-    },
     getUserSharedPlaylist({user_id, playlist_id}) {
         return musicService.getUserSharedPlaylist(user_id, playlist_id);
     },

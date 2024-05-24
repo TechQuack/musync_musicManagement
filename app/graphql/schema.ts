@@ -8,8 +8,7 @@ const typeDefs = buildSchema(`#graphql
         getUserMedia(user_id: Int): String,
         getUserMediaToken(user_id: Int): String,
         getUserSharedPlaylists(user_id: Int): ListUserSharedPlaylists,
-        getUserSharedMusics(user_id: Int): ListUserSharedMusics,
-        getNumber: String
+        getUserSharedMusics(user_id: Int): ListUserSharedMusics
     }
 
     type Mutation {

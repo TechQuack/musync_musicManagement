@@ -1,0 +1,348 @@
+{
+	"info": {
+		"_postman_id": "5c309d08-410e-4b18-9cb0-f2d4e066d12a",
+		"name": "Music Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33746658"
+	},
+	"item": [
+		{
+			"name": "Get User Shared Playlist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n    getUserSharedPlaylist(id: 1){user_shared_playlist_id, user_id}\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{port}}/graphql",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Shared Music",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n    getUserSharedMusic(id: 1){user_shared_music_id, music_id}\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{port}}/graphql",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Media",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n    getUserMedia(user_id: 1)\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{port}}/graphql",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Media Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n    getUserMediaToken(user_id: 1)\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{port}}/graphql",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Shared Playlists",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n    getUserSharedPlaylists(user_id: 1){\r\n        playlists{user_shared_playlist_id, playlist_id}\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{port}}/graphql",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Shared Musics",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n    getUserSharedMusics(user_id: 1){\r\n        musics {user_shared_music_id, music_id, user_id}\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{port}}/graphql",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post User Shared Playlist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n    postUserSharedPlaylist(user_id: 1, playlist_id: 6){user_shared_playlist_id, user_id}\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{port}}/graphql",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post User Shared Music",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n    postUserSharedPlaylist(user_id: 1, playlist_id: 6){user_shared_playlist_id, user_id}\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{port}}/graphql",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Set User Media",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n    postUserSharedPlaylist(user_id: 1, playlist_id: 6){user_shared_playlist_id, user_id}\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{port}}/graphql",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "password",
+				"value": "{{keycloak_password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{keycloak_username}}",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{keycloak_client_secret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{keycloak_client}}",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "password_credentials",
+				"type": "string"
+			},
+			{
+				"key": "useBrowser",
+				"value": true,
+				"type": "boolean"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "http://srv-dpi-archidist-keycloak.univ-rouen.fr:8080/realms/GROUPE01/protocol/openid-connect/token",
+				"type": "string"
+			},
+			{
+				"key": "authUrl",
+				"value": "http://srv-dpi-archidist-keycloak.univ-rouen.fr:8080/realms/GROUPE01/protocol/openid-connect/auth",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ip",
+			"value": "localhost",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "4000",
+			"type": "string"
+		},
+		{
+			"key": "keycloak_client",
+			"value": "api_music",
+			"type": "string"
+		},
+		{
+			"key": "keycloak_client_secret",
+			"value": "SVNhn8olG2CiCukFC6s5XZBz5kO1tIJj",
+			"type": "string"
+		},
+		{
+			"key": "keycloak_username",
+			"value": "api_music",
+			"type": "string"
+		},
+		{
+			"key": "keycloak_password",
+			"value": "api_music",
+			"type": "string"
+		}
+	]
+}

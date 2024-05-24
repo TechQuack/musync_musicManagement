@@ -21,10 +21,10 @@ const resolvers = {
         return musicService.getUserMediaToken(user_id);
     },
     getUserSharedPlaylists({user_id}) {
-        return musicService.getUserSharedPlaylists(user_id);
+        return musicService.getUserSharedPlaylists(user_id).then(response => {return {playlists: response}});
     },
     getUserSharedMusics({user_id}) {
-        return musicService.getUserSharedMusics(user_id);
+        return musicService.getUserSharedMusics(user_id).then(response => {return {musics: response}});
     },
     async postUserSharedPlaylist({user_id, playlist_id}) {
         let response = musicService.postUserSharedPlaylist(user_id, playlist_id);

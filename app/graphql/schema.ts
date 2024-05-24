@@ -41,7 +41,7 @@ const typeDefs = buildSchema(`#graphql
     type UserPlatformMusic {
         user_id: Int!
         token_account : String!
-        music_media_id: Int!
+        music_media: String!
     }
 `);
 

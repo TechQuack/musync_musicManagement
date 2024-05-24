@@ -178,7 +178,6 @@ class MusicService {
             token_account: tokenAccount,
             music_media: musicPlatform
         }
-        // Pass 'userSharedPlaylist' object into query
         if(userPlatform == null) {
             return prisma.userMusicPlatform.create({data: userMedia});
         } else {
@@ -197,24 +196,24 @@ class MusicService {
      */
     public async getSpotifyAccessToken(): Promise<string> {
         const authOptions = {
-            url: 'https://accounts.spotify.com/api/token',
+            method: 'POST',
+            body: 'grant_type=client_credentials',
             headers: {
                 'Authorization': 'Basic ' +
                     (
                         new Buffer.from(
                             process.env.CLIENT_ID + ':' + process.env.CLIENT_SECRET
-                        ).toString('base64'))
-            },
-            form: {
-                grant_type: 'client_credentials'
+                        ).toString('base64')),
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
             },
             json: true
         };
-        return await fetch(authOptions).then(async response => {
-            if (!response.ok && response.status === 200) {
-                return JSON.parse(await response.text()).access_token;
+        return await fetch("https://accounts.spotify.com/api/token", authOptions).then(async response => {
+            if (response.ok) {
+                return response.json();
             }
-        });
+            throw Error(`Unable to access token: ${response.status} : ${response.statusText}`);
+        }).then(response => response.access_token);
 
     }
 

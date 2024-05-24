@@ -196,7 +196,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "mutation {\r\n    postUserSharedPlaylist(user_id: 1, playlist_id: 6){user_shared_playlist_id, user_id}\r\n}",
+						"query": "mutation {\r\n    postUserSharedMusic(user_id: 1, music_id: 6){\r\n        user_shared_music_id, user_id\r\n    }\r\n}",
 						"variables": ""
 					}
 				},
@@ -222,7 +222,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "mutation {\r\n    postUserSharedPlaylist(user_id: 1, playlist_id: 6){user_shared_playlist_id, user_id}\r\n}",
+						"query": "mutation {\r\n    setUserMedia(user_id: 1, media_name: \"Spotify\"){music_media, user_id}\r\n}",
 						"variables": ""
 					}
 				},

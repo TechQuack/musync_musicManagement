@@ -12,7 +12,7 @@ const router = express.Router();
 const memoryStore = new session.MemoryStore();
 app.use(
     session({
-        secret: 'secretKey',
+        secret: 'SVNhn8olG2CiCukFC6s5XZBz5kO1tIJj',
         resave: false,
         saveUninitialized: true,
         store: memoryStore
@@ -30,7 +30,7 @@ app.use(
 
 
 // Create and use the GraphQL handler.
-app.all('/graphql', keycloak.protect('realm:user'),
+app.all('/graphql', keycloak.protect(),
     createHandler({ schema: typeDefs, rootValue: resolvers })
 );
 

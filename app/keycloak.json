@@ -5,10 +5,8 @@
   "resource": "api_music",
   "verify-token-audience": true,
   "credentials": {
-    "secret": "1SS1IquYl7jbvnfb3ypyb7fj8sK5kkFZ"
+    "secret": "SVNhn8olG2CiCukFC6s5XZBz5kO1tIJj"
   },
-  "confidential-port": 0,
-  "policy-enforcer": {
-    "credentials": {}
-  }
+  "use-resource-role-mappings": true,
+  "confidential-port": 0
 }

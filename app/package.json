@@ -15,7 +15,7 @@
     "graphql": "^16.8.1",
     "graphql-http": "^1.22.0",
     "kafkajs": "^2.2.4",
-    "keycloak-connect": "^24.0.3",
+    "keycloak-connect": "24.0.1",
     "prisma": "^5.11.0",
     "ruru": "^2.0.0-beta.11"
   },
